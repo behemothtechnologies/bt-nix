@@ -126,6 +126,8 @@
     yubikey-manager
     yubikey-personalization-gui
     zoom-us
+    openscad
+    libredwg
     inputs.nixvim.packages.x86_64-linux.default
   ];
 

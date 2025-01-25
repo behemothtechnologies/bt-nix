@@ -96,7 +96,7 @@
     vscode
     bitwarden
     expressvpn
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     gitkraken
     direnv
     vlc

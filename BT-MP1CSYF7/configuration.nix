@@ -103,7 +103,6 @@
     deluge
     htop
     glances
-    pro-office-calculator
     mission-center
     pkgs.gnome.gnome-disk-utility
     pkgs.python312

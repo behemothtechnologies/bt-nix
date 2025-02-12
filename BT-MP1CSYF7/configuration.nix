@@ -104,7 +104,7 @@
     htop
     glances
     mission-center
-    pkgs.gnome.gnome-disk-utility
+    pkgs.gnome-disk-utility
     pkgs.python312
     orca-slicer
     fastfetch
@@ -127,6 +127,9 @@
     zoom-us
     openscad
     libredwg
+    gwenview
+    helix
+    nh
     inputs.nixvim.packages.x86_64-linux.default
   ];
 
@@ -139,6 +142,7 @@
   # };
 
   # List services that you want to enable:
+  services.teamviewer.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

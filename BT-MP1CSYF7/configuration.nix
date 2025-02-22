@@ -73,7 +73,10 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [ ];
+    packages = with pkgs; [
+      nh
+    ];
+
   };
 
   # Allow unfree packages

@@ -19,9 +19,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  #Enable Disk Encryption (copy string from original configuration.nix to here)
   boot.initrd.luks.devices."luks-1cd5702a-5787-4d32-aca1-7e8a943bb366".device =
     "/dev/disk/by-uuid/1cd5702a-5787-4d32-aca1-7e8a943bb366";
-  networking.hostName = "BT-MP1CSYF7"; # Define your hostname.
+
+  networking.hostName = "template"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

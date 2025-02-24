@@ -21,7 +21,7 @@
     {
       nixosConfigurations = {
         # NOTE: change "host" to your system's hostname
-        BT-MP1CSYF7 = nixpkgs.lib.nixosSystem {
+        template = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit inputs;
           };

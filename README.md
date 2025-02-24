@@ -14,12 +14,14 @@ BT Nix Configurations for linux laptop deployments
         - add curl
         - add pciutils
 4. Run sudo nixos-rebuild switch and when its completed reboot
-5. login under your user account and your new networking.hostname should be showing now: BT-serialnumber
+5. Login under your user account and your new networking.hostname should be showing now: BT-yourserialnumber
 6. Run git-clone https://github.com/behemothtechnologies/bt-nix
-7. Make a copy of the template folder and name it the same as your hostname BT-serialnumber
-8. copy your /etc/nixos/hardware-configuration.nix file to the new folder you created above replacing the existing hardware-configuration.nix file
-9. edit the line 23 in the flake.nix file before the "=" sign and replace the existing BT-serialnumber to your own BT-serialnumber
-10. Run the command sudo nixos-rebuild switch --flake .#BT-serialnumber (replace with your own host name)
+7. Make a copy of the template folder and name it the same as your hostname BT-yourserialnumber
+8. Copy your /etc/nixos/hardware-configuration.nix file to the new folder you created above replacing the existing hardware-configuration.nix file
+9. Edit the configuration.nix file and change the word template to BT-yourserialnumber
+    - If you added full disk encryption during installation of nixos (which you should have for a business device) copy the entire line/string ending with a ";" in your /etct/nixos/configuration.nix that starts with  "boot.initrd.luks.devices." to the configuration.nix in the bt-nix folder
+10. Edit line 24 in the flake.nix file and change the word template to BT-yourserialnumber
+11. Run the command sudo nixos-rebuild switch --flake .#BT-yourserialnumber (replace with your own host name)
     - If the build initially fails check the following 2 things
         - make sure you are in the same directory as the flake.nix
         - if it still doesn't build run the command git add ~/bt-nix

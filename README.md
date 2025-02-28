@@ -26,3 +26,5 @@ BT Nix Configurations for linux laptop deployments
         - make sure you are in the same directory as the flake.nix
         - if it still doesn't build run the command git add ~/bt-nix
     - rerun the command in step 10
+   
+12. (Future Feature) - Will require ssh key for access to this repo in the future.

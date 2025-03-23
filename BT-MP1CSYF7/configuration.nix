@@ -123,7 +123,7 @@
     freecad
     github-desktop
     obs-studio
-    teamviewer
+    #teamviewer
     kdePackages.kdenlive
     yubikey-manager
     yubikey-personalization-gui
@@ -133,6 +133,9 @@
     gwenview
     helix
     nh
+    inputs.zen-browser.packages.x86_64-linux.default
+    inputs.zen-browser.packages.x86_64-linux.specific
+    inputs.zen-browser.packages.x86_64-linux.generic
     inputs.nixvim.packages.x86_64-linux.default
   ];
 
@@ -163,7 +166,7 @@
   # };
 
   # List services that you want to enable:
-  services.teamviewer.enable = true;
+  #services.teamviewer.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

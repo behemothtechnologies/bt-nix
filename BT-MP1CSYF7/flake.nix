@@ -4,6 +4,7 @@
     nixpkgs.follows = "nixos-cosmic/nixpkgs-stable";
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixvim.url = "github:dc-tec/nixvim";
+    zen-browser.url = "github:MarceColl/zen-browser-flake";
 
     # nixos-cosmic = {
     #  url = "github:lilyinstarlight/nixos-cosmic";
@@ -17,6 +18,7 @@
       nixpkgs,
       nixos-cosmic,
       nixvim,
+      zen-browser,
     }:
     {
       nixosConfigurations = {

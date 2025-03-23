@@ -27,4 +27,5 @@ BT Nix Configurations for linux laptop deployments
         - if it still doesn't build run the command git add ~/bt-nix
     - rerun the command in step 10
    
-12. (Future Feature) - Will require ssh key for access to this repo in the future.
+12. (Future Features) - Will require ssh key for access to this repo in the future
+    - also write script for this whole process for deployment

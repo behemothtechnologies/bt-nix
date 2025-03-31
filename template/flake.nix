@@ -18,6 +18,7 @@
       nixpkgs,
       nixos-cosmic,
       nixvim,
+      zen-browser,
     }:
     {
       nixosConfigurations = {

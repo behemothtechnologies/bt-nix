@@ -21,6 +21,7 @@
 
   boot.initrd.luks.devices."luks-1cd5702a-5787-4d32-aca1-7e8a943bb366".device =
     "/dev/disk/by-uuid/1cd5702a-5787-4d32-aca1-7e8a943bb366";
+
   networking.hostName = "BT-MP1CSYF7"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -112,7 +113,6 @@
     orca-slicer
     fastfetch
     meld
-    wine-wayland
     winetricks
     dust
     barrier
@@ -130,15 +130,25 @@
     zoom-us
     openscad
     libredwg
-    gwenview
-    helix
+    kdePackages.gwenview
+    evil-helix
+    helix-gpt
     nh
+    wineWowPackages.staging
+    wineWowPackages.waylandFull
+    winbox4
+    dupeguru
+    flatpak
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.specific
     inputs.zen-browser.packages.x86_64-linux.generic
     inputs.nixvim.packages.x86_64-linux.default
   ];
 
+  services.flatpak.packages = [
+    #"com.microsoft.Edge"
+  ];
+  
   #kernel options
   boot = {
     # Kernel
@@ -167,6 +177,15 @@
 
   # List services that you want to enable:
   #services.teamviewer.enable = true;
+  services.printing.enable = true;
+  services.flatpak.enable = true;
+
+  systemd.services.flatpak-repo = {
+    path = [pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

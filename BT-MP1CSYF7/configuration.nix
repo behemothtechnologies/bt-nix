@@ -119,6 +119,7 @@
     bitwarden
     expressvpn
     onlyoffice-desktopeditors
+    libreoffice-fresh
     gitkraken
     direnv
     vlc

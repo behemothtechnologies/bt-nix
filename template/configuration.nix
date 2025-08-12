@@ -19,7 +19,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  #Enable Disk Encryption (copy string from original configuration.nix to here)
   boot.initrd.luks.devices."luks-1cd5702a-5787-4d32-aca1-7e8a943bb366".device =
     "/dev/disk/by-uuid/1cd5702a-5787-4d32-aca1-7e8a943bb366";
 
@@ -33,8 +32,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-   # Enable Flakes & Cleanup
-   nix = {
+  # Enable Flakes & Cleanup
+  nix = {
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -52,10 +51,10 @@
   };
 
   # Enable Flakes
-#  nix.settings.experimental-features = [
- #   "nix-command"
-  #  "flakes"
- # ];
+  # nix.settings.experimental-features = [
+  #  "nix-command"
+  # "flakes"
+  # ];
 
   #Enable Cosmic Desktop
   services.desktopManager.cosmic.enable = true;
@@ -86,9 +85,9 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cacarl = {
+  users.users.template = {
     isNormalUser = true;
-    description = "Chris Carl";
+    description = "name";
     extraGroups = [
       "networkmanager"
       "wheel"
@@ -120,6 +119,7 @@
     bitwarden
     expressvpn
     onlyoffice-desktopeditors
+    libreoffice-fresh
     gitkraken
     direnv
     vlc
@@ -132,7 +132,6 @@
     orca-slicer
     fastfetch
     meld
-    wine-wayland
     winetricks
     dust
     barrier
@@ -143,20 +142,31 @@
     freecad
     github-desktop
     obs-studio
-    teamviewer
+    #teamviewer
     kdePackages.kdenlive
     yubikey-manager
     yubikey-personalization-gui
     zoom-us
     openscad
     libredwg
-    gwenview
-    helix
+    kdePackages.gwenview
+    evil-helix
+    helix-gpt
     nh
+    wineWowPackages.staging
+    wineWowPackages.waylandFull
+    winbox4
+    dupeguru
+    google-fonts
+    flatpak
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.specific
     inputs.zen-browser.packages.x86_64-linux.generic
     inputs.nixvim.packages.x86_64-linux.default
+  ];
+
+  services.flatpak.packages = [
+    #"com.microsoft.Edge"
   ];
 
   #kernel options
@@ -186,7 +196,16 @@
   # };
 
   # List services that you want to enable:
-  services.teamviewer.enable = true;
+  #services.teamviewer.enable = true;
+  services.printing.enable = true;
+  services.flatpak.enable = true;
+
+  systemd.services.flatpak-repo = {
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

@@ -32,8 +32,8 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-   # Enable Flakes & Cleanup
-   nix = {
+  # Enable Flakes & Cleanup
+  nix = {
     settings = {
       auto-optimise-store = true;
       experimental-features = [
@@ -51,10 +51,10 @@
   };
 
   # Enable Flakes
- # nix.settings.experimental-features = [
+  # nix.settings.experimental-features = [
   #  "nix-command"
-   # "flakes"
- # ];
+  # "flakes"
+  # ];
 
   #Enable Cosmic Desktop
   services.desktopManager.cosmic.enable = true;
@@ -157,6 +157,7 @@
     wineWowPackages.waylandFull
     winbox4
     dupeguru
+    google-fonts
     flatpak
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.specific
@@ -167,7 +168,7 @@
   services.flatpak.packages = [
     #"com.microsoft.Edge"
   ];
-  
+
   #kernel options
   boot = {
     # Kernel
@@ -200,7 +201,7 @@
   services.flatpak.enable = true;
 
   systemd.services.flatpak-repo = {
-    path = [pkgs.flatpak ];
+    path = [ pkgs.flatpak ];
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';

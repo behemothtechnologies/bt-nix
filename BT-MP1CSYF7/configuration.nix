@@ -142,7 +142,7 @@
     freecad
     github-desktop
     obs-studio
-    #teamviewer
+    teamviewer
     kdePackages.kdenlive
     yubikey-manager
     yubikey-personalization-gui
@@ -196,7 +196,7 @@
   # };
 
   # List services that you want to enable:
-  #services.teamviewer.enable = true;
+  services.teamviewer.enable = true;
   services.printing.enable = true;
   services.flatpak.enable = true;
 

@@ -61,7 +61,7 @@
   services.displayManager.cosmic-greeter.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -159,6 +159,11 @@
     dupeguru
     google-fonts
     flatpak
+    tailscale
+    tail-tray
+    zed-editor
+    nil
+    warp-terminal
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.specific
     inputs.zen-browser.packages.x86_64-linux.generic
@@ -199,6 +204,7 @@
   services.teamviewer.enable = true;
   services.printing.enable = true;
   services.flatpak.enable = true;
+  services.tailscale.enable = true;
 
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];

@@ -94,6 +94,8 @@
     ];
     packages = with pkgs; [
       nh
+      input-leap
+      deskflow
     ];
 
   };
@@ -134,7 +136,8 @@
     meld
     winetricks
     dust
-    barrier
+    #input-leap
+    #deskflow
     teams-for-linux
     cobang
     dbeaver-bin
@@ -166,6 +169,7 @@
     warp-terminal
     xdg-desktop-portal-cosmic
     mucommander
+    barrier
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.specific
     inputs.zen-browser.packages.x86_64-linux.generic

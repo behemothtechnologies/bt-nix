@@ -115,11 +115,10 @@
     microsoft-edge
     ferdium
     protonvpn-gui
-    protonvpn-cli
     gitkraken
     btop
     vscode
-    bitwarden
+    bitwarden-desktop
     expressvpn
     onlyoffice-desktopeditors
     libreoffice-fresh
@@ -149,7 +148,6 @@
     teamviewer
     kdePackages.kdenlive
     yubikey-manager
-    yubikey-personalization-gui
     zoom-us
     openscad
     libredwg
@@ -170,6 +168,9 @@
     warp-terminal
     xdg-desktop-portal-cosmic
     mucommander
+    cosmic-ext-calculator
+    p3x-onenote
+    yed
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.zen-browser.packages.x86_64-linux.specific
     inputs.zen-browser.packages.x86_64-linux.generic

@@ -2,7 +2,7 @@
   inputs = {
 
     #nixpkgs.follows = "nixos-cosmic/nixpkgs-stable";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     # nixpkgs-unstable.url = "nixpkgs/nicos-unstable";
     # nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixvim.url = "github:dc-tec/nixvim";
@@ -32,12 +32,12 @@
             inherit inputs;
           };
           modules = [
-           # {
-           #   nix.settings = {
-           #     substituters = [ "https://cosmic.cachix.org/" ];
-           #     trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-           #   };
-           # }
+            # {
+            #   nix.settings = {
+            #     substituters = [ "https://cosmic.cachix.org/" ];
+            #     trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            #   };
+            # }
             # nixos-cosmic.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             ./configuration.nix

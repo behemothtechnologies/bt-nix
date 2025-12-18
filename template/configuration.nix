@@ -199,6 +199,7 @@
   #services.teamviewer.enable = true;
   services.printing.enable = true;
   services.flatpak.enable = true;
+  services.tailscale.enable = true;
 
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];

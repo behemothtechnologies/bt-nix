@@ -22,7 +22,7 @@
   boot.initrd.luks.devices."luks-1cd5702a-5787-4d32-aca1-7e8a943bb366".device =
     "/dev/disk/by-uuid/1cd5702a-5787-4d32-aca1-7e8a943bb366";
 
-  networking.hostName = "template"; # Define your hostname.
+  networking.hostName = "BT-template"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -61,7 +61,7 @@
   services.displayManager.cosmic-greeter.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -87,13 +87,16 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.template = {
     isNormalUser = true;
-    description = "name";
+    description = "Chris Carl";
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
     packages = with pkgs; [
       nh
+      input-leap
+      deskflow
+      thunderbird
     ];
 
   };
@@ -112,11 +115,10 @@
     microsoft-edge
     ferdium
     protonvpn-gui
-    protonvpn-cli
     gitkraken
     btop
     vscode
-    bitwarden
+    bitwarden-desktop
     expressvpn
     onlyoffice-desktopeditors
     libreoffice-fresh
@@ -132,9 +134,11 @@
     orca-slicer
     fastfetch
     meld
+    lazygit
     winetricks
     dust
-    barrier
+    #input-leap
+    #deskflow
     teams-for-linux
     cobang
     dbeaver-bin
@@ -142,10 +146,9 @@
     freecad
     github-desktop
     obs-studio
-    #teamviewer
+    teamviewer
     kdePackages.kdenlive
     yubikey-manager
-    yubikey-personalization-gui
     zoom-us
     openscad
     libredwg
@@ -159,9 +162,17 @@
     dupeguru
     google-fonts
     flatpak
+    tailscale
+    tail-tray
+    zed-editor
+    nil
+    warp-terminal
+    xdg-desktop-portal-cosmic
+    mucommander
+    cosmic-ext-calculator
+    p3x-onenote
+    yed
     inputs.zen-browser.packages.x86_64-linux.default
-    inputs.zen-browser.packages.x86_64-linux.specific
-    inputs.zen-browser.packages.x86_64-linux.generic
     inputs.nixvim.packages.x86_64-linux.default
   ];
 
@@ -196,7 +207,7 @@
   # };
 
   # List services that you want to enable:
-  #services.teamviewer.enable = true;
+  services.teamviewer.enable = true;
   services.printing.enable = true;
   services.flatpak.enable = true;
   services.tailscale.enable = true;
@@ -206,6 +217,13 @@
     script = ''
       flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     '';
+  };
+
+  #Other Environment Configs
+  environment.shellAliases = {
+    fr = "nh os switch --hostname ${config.networking.hostName} ~/bt-nix/${config.networking.hostName}/";
+    fu = "nh os switch --hostname ${config.networking.hostName} ~/bt-nix/${config.networking.hostName}/ --update";
+    v = "nvim";
   };
 
   # Enable the OpenSSH daemon.

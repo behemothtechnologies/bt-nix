@@ -218,6 +218,13 @@
     '';
   };
 
+  #Other Environment Configs
+  environment.shellAliases = {
+    fr = "nh os switch --hostname ${config.networking.hostName} ~/bt-nix/${config.networking.hostName}/";
+    fu = "nh os switch --hostname ${config.networking.hostName} ~/bt-nix/${config.networking.hostName}/ --update";
+    v = "nvim";
+  };
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 

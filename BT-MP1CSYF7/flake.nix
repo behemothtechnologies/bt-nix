@@ -10,7 +10,7 @@
       url = "github:HeitorAugustoLN/cosmic-manager";
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        home-manger.follows = "home-manger";
+        home-manager.follows = "home-manager";
       };
     };
     zen-browser = {
@@ -22,6 +22,10 @@
     };
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    catppuccin = {
+      url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -36,6 +40,7 @@
       nix-flatpak,
       home-manager,
       cosmic-manager,
+      catppuccin,
       ...
     }:
 
@@ -55,6 +60,15 @@
           modules = [
             nix-flatpak.nixosModules.nix-flatpak
             ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.cacarl = import ./home.nix;
+                backupFileExtension = "backup";
+              };
+            }
           ];
         };
       };

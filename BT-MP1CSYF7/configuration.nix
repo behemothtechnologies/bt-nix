@@ -134,6 +134,7 @@
     orca-slicer
     fastfetch
     meld
+    lazygit
     winetricks
     dust
     #input-leap

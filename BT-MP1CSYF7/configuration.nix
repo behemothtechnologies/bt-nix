@@ -153,7 +153,6 @@
     openscad
     libredwg
     kdePackages.gwenview
-    evil-helix
     helix-gpt
     nh
     wineWowPackages.staging
@@ -172,6 +171,7 @@
     cosmic-ext-calculator
     p3x-onenote
     yed
+    virt-viewer
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.nixvim.packages.x86_64-linux.default
   ];

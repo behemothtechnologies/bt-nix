@@ -8,15 +8,15 @@
   home.username = "cacarl";
   home.homeDirectory = "/home/cacarl";
   home.stateVersion = "25.11";
+
+  # Git Options
   programs.git = {
     enable = true;
     lfs.enable = true;
-    extraConfig = {
-      credential.helper = "!${pkgs.gh}/bin/gh auth git-credential";
-    };
     settings = {
-      user.name = "cacarl";
-      user.email = "cacarl@behemothtechnologies.com";
+      user.name = "bt-cacarl";
+      user.email = "cacarl@gmail.com";
+      credential.helper = "!${pkgs.gh}/bin/gh auth git-credential";
     };
   };
 }

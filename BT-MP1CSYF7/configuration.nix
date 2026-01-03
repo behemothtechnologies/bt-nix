@@ -158,7 +158,7 @@
     wineWowPackages.staging
     wineWowPackages.waylandFull
     winbox4
-    dupeguru
+    czkawka-full
     google-fonts
     flatpak
     tailscale
@@ -172,6 +172,10 @@
     p3x-onenote
     yed
     virt-viewer
+    dune3d
+    solvespace
+    dia
+    outline
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.nixvim.packages.x86_64-linux.default
   ];

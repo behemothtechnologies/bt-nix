@@ -175,7 +175,12 @@
     dune3d
     solvespace
     dia
-    outline
+    onedriver
+    onedrive
+    onedrivegui
+    libei
+    libportal
+    waynergy
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.nixvim.packages.x86_64-linux.default
   ];
@@ -187,7 +192,7 @@
   #kernel options
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages_zen;
+    kernelPackages = pkgs.linuxPackages_6_19;
     # This is for OBS Virtual Cam Support
     kernelModules = [ "v4l2loopback" ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];

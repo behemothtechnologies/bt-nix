@@ -2,7 +2,7 @@
   inputs = {
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    # nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.url = "github:dc-tec/nixvim";
     #zen-browser.url = "github:MarceColl/zen-browser-flake";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
@@ -35,6 +35,7 @@
     inputs@{
       self,
       nixpkgs,
+      nixpkgs-unstable,
       nixvim,
       zen-browser,
       nix-flatpak,
@@ -48,6 +49,7 @@
       lib = nixpkgs.lib;
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
     in
     {
       nixosConfigurations = {
@@ -56,6 +58,7 @@
           inherit system;
           specialArgs = {
             inherit inputs;
+            inherit pkgs-unstable;
           };
           modules = [
             nix-flatpak.nixosModules.nix-flatpak

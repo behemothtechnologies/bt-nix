@@ -5,6 +5,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   inputs,
   ...
 }:
@@ -91,6 +92,9 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "input"
+      "uinput"
+      "dialout"
     ];
     packages = with pkgs; [
       nh
@@ -181,6 +185,8 @@
     libei
     libportal
     waynergy
+    wl-clipboard
+    pkgs-unstable.stirling-pdf-desktop
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.nixvim.packages.x86_64-linux.default
   ];
@@ -194,7 +200,10 @@
     # Kernel
     kernelPackages = pkgs.linuxPackages_6_19;
     # This is for OBS Virtual Cam Support
-    kernelModules = [ "v4l2loopback" ];
+    kernelModules = [
+      "v4l2loopback"
+      "uinput"
+    ];
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
     # Needed For Some Steam Games
     kernel.sysctl = {
@@ -221,6 +230,10 @@
   services.flatpak.enable = true;
   services.tailscale.enable = true;
 
+  services.udev.extraRules = ''
+    KERNEL=="uinput", MODE="0660", GROUP="input", OPTIONS+="static_node=uinput"
+  '';
+
   systemd.services.flatpak-repo = {
     path = [ pkgs.flatpak ];
     script = ''
@@ -236,7 +249,7 @@
   };
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+   services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

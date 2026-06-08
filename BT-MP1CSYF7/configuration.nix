@@ -107,6 +107,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-39.8.10"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -118,7 +121,7 @@
     pciutils
     microsoft-edge
     ferdium
-    protonvpn-gui
+    proton-vpn
     gitkraken
     btop
     vscode
@@ -134,7 +137,6 @@
     glances
     mission-center
     pkgs.gnome-disk-utility
-    pkgs.python312
     orca-slicer
     fastfetch
     meld
@@ -157,10 +159,9 @@
     openscad
     libredwg
     kdePackages.gwenview
-    helix-gpt
     nh
-    wineWowPackages.staging
-    wineWowPackages.waylandFull
+    wineWow64Packages.staging
+    wineWow64Packages.waylandFull
     winbox4
     czkawka-full
     google-fonts
@@ -198,7 +199,7 @@
   #kernel options
   boot = {
     # Kernel
-    kernelPackages = pkgs.linuxPackages_6_19;
+    kernelPackages = pkgs.linuxPackages_latest;
     # This is for OBS Virtual Cam Support
     kernelModules = [
       "v4l2loopback"
@@ -249,7 +250,7 @@
   };
 
   # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
+  services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

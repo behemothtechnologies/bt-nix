@@ -187,6 +187,8 @@
     libportal
     waynergy
     wl-clipboard
+    anytype
+    anytype-heart
     pkgs-unstable.stirling-pdf-desktop
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.nixvim.packages.x86_64-linux.default

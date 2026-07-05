@@ -190,6 +190,8 @@
     anytype
     anytype-heart
     gh
+    photoflare
+    shutter
     pkgs-unstable.stirling-pdf-desktop
     inputs.zen-browser.packages.x86_64-linux.default
     inputs.nixvim.packages.x86_64-linux.default

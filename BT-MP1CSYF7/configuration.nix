@@ -179,7 +179,7 @@
     virt-viewer
     dune3d
     solvespace
-    dia
+    #dia
     onedriver
     onedrive
     onedrivegui
@@ -187,8 +187,8 @@
     libportal
     waynergy
     wl-clipboard
-    anytype
-    anytype-heart
+    #anytype
+    #anytype-heart
     gh
     photoflare
     shutter

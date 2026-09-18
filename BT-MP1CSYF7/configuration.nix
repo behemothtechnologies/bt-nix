@@ -7,6 +7,7 @@
   pkgs,
   pkgs-unstable,
   inputs,
+  username,
   ...
 }:
 
@@ -14,7 +15,23 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.nixos-manager.nixosModules.default
   ];
+
+  programs.nixos-manager = {
+    enable = true;
+    package = inputs.nixos-manager.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  };
+
+  environment.variables = {
+    #FLAKE_DIR = "/home/${username}/bt-nix";
+    FLAKE_DIR = "/home/cacarl/bt-nix/BT-MP1CSYF7";
+
+    #Optional Overrides
+    # NIXOS_REBUILD_COMMAND = "my-custom-wrapper";
+    # NIXOS_EVAL_COMMAND = "my-custom-eval-command";
+    # ELECTRON_IS_DEV = "1";
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

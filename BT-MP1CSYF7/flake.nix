@@ -29,6 +29,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    #Build Manager for NixOS
+    nixos-manager = {
+      url = "github:icefirex/nixos-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -42,6 +48,7 @@
       home-manager,
       cosmic-manager,
       catppuccin,
+      nixos-manager,
       ...
     }:
 
